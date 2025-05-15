@@ -4,7 +4,8 @@
     {
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
-        public string CategoryCollactionName { get; set; }
-        public string ProductCollactionName { get; set; }
+        public string CategoryCollectionName { get; set; }
+        public string ProductCollectionName { get; set; }
+        public string CustomerCollectionName { get; set; }
     }
 }
