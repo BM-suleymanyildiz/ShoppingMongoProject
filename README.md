@@ -104,4 +104,3 @@ Yönetici paneli üzerinden aşağıdaki işlemler yapılabilir:
 
 ---
 
-Projeyi geliştirip katkı sağlamak isterseniz pull request gönderebilirsiniz. ⭐
