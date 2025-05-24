@@ -1,0 +1,29 @@
+﻿@model ShoppingNightMongo.Dtos.SliderDtos.GetSliderByIdDto
+    ViewData["Title"] = "CreateSlider";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <br />
+    <form method="post">
+        <input type="hidden" asp-for="SliderId" />
+
+        <label>Slayt Başlık</label>
+        <input type="text" asp-for="SliderTitle" class="form-control" />
+        <br />
+
+        <label>Slayt Alt Başlık</label>
+        <input type="text" asp-for="SliderSubTitle" class="form-control" />
+        <br />
+        
+        <label>Slayt Görsel Url</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        
+        <button class="btn btn-info">Slayt Ekle</button>
+    </form>
+</div>

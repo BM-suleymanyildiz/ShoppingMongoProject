@@ -1,0 +1,35 @@
+﻿@model List<ShoppingNightMongo.Dtos.SliderDtos.ResultSliderDto>
+@{
+    ViewData["Title"] = "SliderList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Slayt Başlık</th>
+            <th>Slayt Alt Başlık</th>
+            <th>Slayt Görsel Url</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SliderId</td>
+                <td>@item.SliderTitle</td>
+                <td>@item.SliderSubTitle</td>
+                <td>@item.ImageUrl</td>
+                <td><a href="/Sliders/DeleteSlider/@item.SliderId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Sliders/UpdateSlider/@item.SliderId" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+    </table>
+    <a href="/Sliders/CreateSlider/" class="btn btn-primary">Yeni Slayt Girişi</a>
+</div>

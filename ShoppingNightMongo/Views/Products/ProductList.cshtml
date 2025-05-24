@@ -1,0 +1,42 @@
+﻿@model ShoppingNightMongo.ViewModels.ProductCategoryViewModel
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Ürün Fiyatı</th>
+            <th>Ürün Stok Sayısı</th>
+            <th>Ürün Kategori</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model.Products)
+        {
+            var categoryName = Model.Categories.FirstOrDefault(c => c.CategoryId == item.CategoryId)?.CategoryName ?? "Kategori Yok";
+
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.ProductPrice</td>
+                <td>@item.StockCount</td>
+                <td>@categoryName</td>
+                <td><a href="/Products/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Products/UpdateProduct/@item.ProductId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Products/CreateProduct/" class="btn btn-primary">Yeni Ürün Girişi</a>
+</div>
+
+
+
+

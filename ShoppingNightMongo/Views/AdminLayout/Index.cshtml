@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+
+<html class="no-js" lang="en">
+
+@Html.Partial("/Views/AdminLayout/PartialHead.cshtml")
+
+<body>
+
+    <div class="left-sidebar-pro">
+        
+        @Html.Partial("/Views/AdminLayout/PartialSidebar.cshtml")
+    
+    </div>
+
+    <div class="all-content-wrapper">
+        @RenderBody()
+    </div>
+
+    @Html.Partial("/Views/AdminLayout/PartialScript.cshtml")
+
+</body>
+
+</html>

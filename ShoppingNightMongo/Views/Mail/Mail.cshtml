@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mail Gönder</title>
+</head>
+<body>
+    <h2>Mail Gönderme Formu</h2>
+
+    <form asp-action="Mail" method="post">
+        <label for="email">E-Posta Adresi:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <button type="submit">Mail Gönder</button>
+    </form>
+
+    <br />
+    @if (ViewBag.Message != null)
+    {
+        <strong>@ViewBag.Message</strong>
+    }
+</body>
+</html>

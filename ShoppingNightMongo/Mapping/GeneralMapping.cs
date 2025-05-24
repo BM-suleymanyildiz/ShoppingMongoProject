@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using ShoppingNightMongo.Dtos.CategoryDtos;
 using ShoppingNightMongo.Dtos.CustomerDtos;
+using ShoppingNightMongo.Dtos.ProductDetailDtos;
 using ShoppingNightMongo.Dtos.ProductDtos;
+using ShoppingNightMongo.Dtos.SliderDtos;
 using ShoppingNightMongo.Entities;
 
 namespace ShoppingNightMongo.Mapping
@@ -15,7 +17,7 @@ namespace ShoppingNightMongo.Mapping
             CreateMap<Category, UpdateCategoryDto>().ReverseMap();
             CreateMap<Category, GetCategoryByIdDto>().ReverseMap();
 
-            CreateMap<Customer,CreateCustomerDto>().ReverseMap();
+            CreateMap<Customer, CreateCustomerDto>().ReverseMap();
             CreateMap<Customer, ResultCustomerDto>().ReverseMap();
             CreateMap<Customer, UpdateCustomerDto>().ReverseMap();
             CreateMap<Customer, GetCustomerByIdDto>().ReverseMap();
@@ -24,6 +26,18 @@ namespace ShoppingNightMongo.Mapping
             CreateMap<Product, ResultProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
             CreateMap<Product, GetProductByIdDto>().ReverseMap();
+
+            CreateMap<Slider, CreateSliderDto>().ReverseMap();
+            CreateMap<Slider, ResultSliderDto>().ReverseMap();
+            CreateMap<Slider, UpdateSliderDto>().ReverseMap();
+            CreateMap<Slider, GetSliderByIdDto>().ReverseMap();
+
+            CreateMap<ProductDetail, CreateProductDetailDto>().ReverseMap();
+            CreateMap<ProductDetail, UpdateProductDetailDto>().ReverseMap();
+            CreateMap<ProductDetail, ResultProductDetailDto>().ReverseMap();
+            CreateMap<ProductDetail, GetProductDetailByIdDto>().ReverseMap();
+
+
 
 
         }

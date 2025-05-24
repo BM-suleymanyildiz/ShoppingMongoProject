@@ -1,0 +1,31 @@
+﻿@model ShoppingNightMongo.Dtos.ProductDetailDtos.CreateProductDetailDto
+﻿
+@{
+    ViewData["Title"] = "CreateProductDetail";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+            <form method="post">
+               
+                        <label>Ürün</label>
+                        <select asp-for="ProductId" class="form-control" asp-items="ViewBag.v">
+                            <option value=""> -- Ürün Seçiniz --</option>
+                        </select>
+                  
+                        <label>Resim Url</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl">
+                
+           
+                    <button class="btn btn-success">Ekle</button>
+          
+            </form>
+
+</div>
+
+
+
+   

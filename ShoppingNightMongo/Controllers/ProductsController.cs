@@ -1,25 +1,52 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ShoppingNightMongo.Dtos.ProductDtos;
+using ShoppingNightMongo.Entities;
+using ShoppingNightMongo.Services.CategoryServices;
 using ShoppingNightMongo.Services.ProductServices;
+using ShoppingNightMongo.ViewModels;
+
 
 namespace ShoppingNightMongo.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IProductService _productService;
-        public ProductsController(IProductService productService)
+        private readonly ICategoryService _categoryService;
+        public ProductsController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
-        public async Task<IActionResult> ProductList()
+        public async Task<IActionResult> ProductList(string categoryId)
         {
-            var values = await _productService.GetAllProductAsync();
-            return View(values);
+            var allProducts = await _productService.GetAllProductAsync();
+            var categories = await _categoryService.GetAllCategoryAsync();
+
+            if (!string.IsNullOrEmpty(categoryId))
+            {
+                allProducts = allProducts.Where(p => p.CategoryId == categoryId).ToList();
+            }
+
+            var model = new ProductCategoryViewModel
+            {
+                Products = allProducts,
+                Categories = categories
+            };
+
+            return View(model);
         }
 
         [HttpGet]
-        public IActionResult CreateProduct()
+        public async Task<IActionResult> CreateProduct()
         {
+            var categories = await _categoryService.GetAllCategoryAsync();
+            ViewBag.v = categories.Select(c => new SelectListItem
+            {
+                Text = c.CategoryName,
+                Value = c.CategoryId
+            }).ToList();
+
             return View();
         }
 
@@ -36,14 +63,14 @@ namespace ShoppingNightMongo.Controllers
             await _productService.DeleteProductAsync(id);
             return RedirectToAction("ProductList");
         }
-      
+
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(string id)
         {
             var values = await _productService.GetProductByIdAsync(id);
             return View(values);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
         {

@@ -26,18 +26,18 @@ namespace ShoppingNightMongo.Services.CustomerServices
 
         public async Task DeleteCustomerAsync(string customerId)
         {
-            await _customerCollection.DeleteOneAsync(customerId);
+            await _customerCollection.DeleteOneAsync(x => x.CustomerId == customerId);
         }
 
         public async Task<List<ResultCustomerDto>> GetAllCustomerAsync()
         {
-           var value= await _customerCollection.Find(x => true).ToListAsync();
+            var value = await _customerCollection.Find(x => true).ToListAsync();
             return _mapper.Map<List<ResultCustomerDto>>(value);
         }
 
         public async Task<GetCustomerByIdDto> GetCustomerByIdAsync(string customerId)
         {
-            var value =await _customerCollection.Find(x => x.CustomerId == customerId).FirstOrDefaultAsync();
+            var value = await _customerCollection.Find(x => x.CustomerId == customerId).FirstOrDefaultAsync();
             return _mapper.Map<GetCustomerByIdDto>(value);
         }
 
