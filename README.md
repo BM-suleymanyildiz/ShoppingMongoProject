@@ -1,6 +1,6 @@
 # 🛒 Modern E-Ticaret Web Uygulaması | ASP.NET Core MVC & MongoDB
 
-Bu proje, **M&Y Akademi Danışmanlık** kapsamında **Murat Yücedağ** rehberliğinde geliştirilmiştir. MongoDB tabanlı veritabanı yapısı ve ASP.NET Core MVC mimarisi kullanılarak hazırlanan bu web uygulaması, modern bir e-ticaret deneyimi sunmayı hedefler.
+Bu proje, MongoDB tabanlı veritabanı yapısı ve ASP.NET Core MVC mimarisi kullanılarak hazırlanan bu web uygulaması, modern bir e-ticaret deneyimi sunmayı hedefler.
 
 Kullanıcılar ürünleri görüntüleyebilir, slider bileşenleri ile kampanyaları takip edebilir ve e-posta aboneliği yoluyla özel indirim kuponlarına erişebilir.  
 **Yönetici paneli** üzerinden ürün, kategori ve müşteri gibi içerikler kolayca yönetilebilir.
